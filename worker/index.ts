@@ -15,6 +15,7 @@ export class SandboxShellContainer extends Container {
       },
       body: JSON.stringify({command, cwd})
     });
+    await env.command.put(command, cwd);
     return await response.json();
   }
 }
@@ -23,8 +24,7 @@ app.post('/api/sandbox/:slug', async(c) => {
   const payload = await c.req.json();
   const {slug} = c.req.param();
   const container = getContainer(c.env.SANDBOX_SHELL_CONTAINER, slug);
-  const result = await container.runCommand(payload.command, payload.cwd);
-  await c.env.KVNamespace.command.put(payload.command, payload.cwd);
+  const result = await container.runCommand(payload.command, payload.cwd);  
   return c.json(result);
 
 });
