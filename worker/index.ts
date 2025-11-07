@@ -1,10 +1,6 @@
 import { Hono } from 'hono';
 import { Container, getContainer } from '@cloudflare/containers';
 const app = new Hono<{ Bindings: Env }>();
-interface Env {
-  command: KVNamespace;  
-  SANDBOX_SHELL_CONTAINER: Container;   
-}
 
 export class SandboxShellContainer extends Container {
   defaultPort = 8000;
@@ -27,7 +23,7 @@ app.post('/api/sandbox/:slug', async(c) => {
   const {slug} = c.req.param();
   const container = getContainer(c.env.SANDBOX_SHELL_CONTAINER, slug);
   const result = await container.runCommand(payload.command, payload.cwd);
-  await c.env.command.put(payload.command, payload.cwd);
+  await c.env.COMMANDS.put(payload.command, payload.cwd);
   return c.json(result);
 
 });
