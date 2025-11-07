@@ -1,6 +1,6 @@
 import { Hono } from 'hono';
 import { Container, getContainer } from '@cloudflare/containers';
-type Bindings {
+type Bindings = {
   command: KVNamespace;                 // KV binding  
 }
 
