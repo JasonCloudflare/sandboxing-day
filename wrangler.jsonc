@@ -38,7 +38,7 @@
   ],
   "kv_namespaces": [
     {
-      "binding": "USERS_NOTIFICATION_CONFIG",
+      "binding": "command",
       "id": "a50f5c0a53e44d6990e2f62cb4fa93f8"
     }
   ]
