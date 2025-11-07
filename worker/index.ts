@@ -2,7 +2,7 @@ import { Hono } from 'hono';
 import { Container, getContainer } from '@cloudflare/containers';
 interface Env {
   command: KVNamespace;                 // KV binding
-  SANDBOX_SHELL_CONTAINER: DurableObjectNamespace;    // Container binding
+  SANDBOX_SHELL_CONTAINER: ContainerNamespace;    // Container binding
 }
 
 const app = new Hono<{ Bindings: Env }>();
