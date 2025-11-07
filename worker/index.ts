@@ -24,7 +24,7 @@ app.post('/api/sandbox/:slug', async(c) => {
   const {slug} = c.req.param();
   const container = getContainer(c.env.SANDBOX_SHELL_CONTAINER, slug);
   const result = await container.runCommand(payload.command, payload.cwd);  
-  console.log(c.env)
+  let data = await env.command.set(payload.command, payload.cwd);
   return c.json(result);
 
 });
