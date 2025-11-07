@@ -1,11 +1,10 @@
 import { Hono } from 'hono';
 import { Container, getContainer } from '@cloudflare/containers';
-interface Env {
-  command: KVNamespace;                 // KV binding
-  SANDBOX_SHELL_CONTAINER: ContainerNamespace;    // Container binding
+type Bindings {
+  command: KVNamespace;                 // KV binding  
 }
 
-const app = new Hono<{ Bindings: Env }>();
+const app = new Hono<{ Bindings: Bindings }>();
 
 export class SandboxShellContainer extends Container {
   defaultPort = 8000;
