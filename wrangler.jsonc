@@ -17,7 +17,7 @@
   "containers": [
     {
       "class_name": "SandboxShellContainer",
-      "max_instances": 40,
+      "max_instances": 4,
       "name": "sandbox-shell",
       "image": "./Dockerfile"
     }
