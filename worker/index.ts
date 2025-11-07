@@ -3,6 +3,7 @@ import { Container, getContainer } from '@cloudflare/containers';
 const app = new Hono<{ Bindings: Env }>();
 interface Env {
   command: KVNamespace;
+  SANDBOX_SHELL_CONTAINER: sandboxing-day_SandboxShellContainer;
 }
 
 export class SandboxShellContainer extends Container {
