@@ -35,12 +35,6 @@
       "new_sqlite_classes": ["SandboxShellContainer"],
       "tag": "v1"
     }
-  ],
-  "kv_namespaces": [
-    {
-      "binding": "command",
-      "id": "a50f5c0a53e44d6990e2f62cb4fa93f8"
-    }
   ]
   /**
    * Smart Placement
