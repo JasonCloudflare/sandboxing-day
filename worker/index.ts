@@ -15,7 +15,6 @@ export class SandboxShellContainer extends Container {
       },
       body: JSON.stringify({command, cwd})
     });
-    await env.command.put(command, cwd);
     return await response.json();
   }
 }
@@ -25,6 +24,7 @@ app.post('/api/sandbox/:slug', async(c) => {
   const {slug} = c.req.param();
   const container = getContainer(c.env.SANDBOX_SHELL_CONTAINER, slug);
   const result = await container.runCommand(payload.command, payload.cwd);  
+  console.log(c.env)
   return c.json(result);
 
 });
