@@ -1,6 +1,8 @@
 import { Hono } from 'hono';
 import { Container, getContainer } from '@cloudflare/containers';
-
+type Bindings = {
+  command: KVNamespace
+}
 const app = new Hono<{ Bindings: Env }>();
 
 export class SandboxShellContainer extends Container {
